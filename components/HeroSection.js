@@ -23,7 +23,7 @@ export default function Searchbox() {
 
 	async function analyzeCluster() {
 		setResultClusterId(null)
-		const url = "http://13.229.79.190/search"
+		const url = "http://13.215.140.211//search"
 		setSearching(true)
 		const res = await fetch(url, {
 			method: "POST",
