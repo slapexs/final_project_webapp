@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Image from "next/image"
 
 // Components
 import HeroSection from "../components/HeroSection"
@@ -33,7 +34,7 @@ export default function Home() {
 					property="og:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="og:image" content="" />
+				<meta property="og:image" content="/metaimage.png" />
 
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta
@@ -48,7 +49,7 @@ export default function Home() {
 					property="twitter:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="twitter:image" content="" />
+				<meta property="twitter:image" content="/metaimage.png" />
 				{/* End thumbnail */}
 
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
