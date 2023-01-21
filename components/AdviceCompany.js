@@ -39,7 +39,7 @@ const AdviceCompany = ({ listCompanies }) => {
 	useEffect(() => {
 		async function getListCompany() {
 			const amount = 12
-			const url = `http://localhost:3000/api/randomcompany?amount=${amount}`
+			const url = `https://intern-assistant.vercel.app/api/randomcompany?amount=${amount}`
 			const res = await fetch(url)
 			const data = await res.json()
 			setListCompany(data.listCompany)
