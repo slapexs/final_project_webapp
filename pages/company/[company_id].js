@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
 import {
 	MapPinIcon,
 	AtSymbolIcon,
@@ -34,7 +33,7 @@ const classBadge = [
 
 export async function getServerSideProps(context) {
 	const { company_id } = context.query
-	const url = `http://localhost:3000/api/getcompanyby_id?company_id=${company_id}`
+	const url = `https://intern-assistant.vercel.app/api/getcompanyby_id?company_id=${company_id}`
 	const res = await fetch(url)
 	const data = await res.json()
 

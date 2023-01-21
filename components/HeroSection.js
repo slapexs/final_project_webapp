@@ -15,7 +15,7 @@ export default function Searchbox() {
 	}
 
 	async function getCompanyWithCluster(cluster_id) {
-		const api_url = `http://localhost:3000/api/getcompany?cluster=${cluster_id}`
+		const api_url = `https://intern-assistant.vercel.app/api/getcompany?cluster=${cluster_id}`
 		const res = await fetch(api_url)
 		const data = await res.json()
 		setResultCompany(data.data)

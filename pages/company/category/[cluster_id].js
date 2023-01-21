@@ -15,7 +15,7 @@ const clusters = [
 export async function getServerSideProps(context) {
 	const { cluster_id } = context.query
 	const res = await fetch(
-		`http://localhost:3000/api/getcompany?cluster=${cluster_id}`
+		`https://intern-assistant.vercel.app/api/getcompany?cluster=${cluster_id}`
 	)
 	const data = await res.json()
 	return { props: { companies: data.data, cluster_id } }

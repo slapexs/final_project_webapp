@@ -2,7 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 
 export async function getServerSideProps(context) {
-	const url = "http://localhost:3000/api/getallcompany"
+	const url = "https://intern-assistant.vercel.app/api/getallcompany"
 	const response = await fetch(url)
 	const data = await response.json()
 
