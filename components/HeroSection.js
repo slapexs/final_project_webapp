@@ -23,7 +23,7 @@ export default function Searchbox() {
 
 	async function analyzeCluster() {
 		setResultClusterId(null)
-		const url = "http://13.215.140.211//search"
+		const url = "https://iamonze.tech/search"
 		setSearching(true)
 		const res = await fetch(url, {
 			method: "POST",
