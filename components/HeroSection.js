@@ -3,7 +3,6 @@ import { MagnifyingGlassIcon, ArrowPathIcon } from "@heroicons/react/24/outline"
 
 import ResultCompany from "./ResultCompany"
 import AdviceCompany from "./AdviceCompany"
-import ModalSearch from "./ModalSearch"
 
 export default function Searchbox() {
 	const [searchKeyword, setSearchKeyword] = useState("")
@@ -99,9 +98,6 @@ export default function Searchbox() {
 			) : (
 				<AdviceCompany />
 			)}
-
-			{/* Show modal when got result */}
-			{!resultClusterId && <ModalSearch />}
 		</>
 	)
 }
