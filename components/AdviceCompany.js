@@ -26,14 +26,8 @@ const classBadge = [
 	"bg-indigo-100 text-indigo-800",
 	"bg-fuchsia-100 text-fuchsia-800",
 ]
-export async function getServerSideProps(context) {
-	return {
-		props: { listCompanies: data },
-	}
-}
 
-const AdviceCompany = ({ listCompanies }) => {
-	console.log(listCompanies)
+const AdviceCompany = () => {
 	const [listCompany, setListCompany] = useState([])
 
 	useEffect(() => {
