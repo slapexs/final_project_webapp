@@ -56,14 +56,14 @@ export default function Navbar() {
 								<div className="">
 									<Link href="/" className="flex flex-shrink-0 items-center">
 										<Image
-											src="/houseparty.png"
+											src="/meeting.png"
 											width={48}
 											height={48}
 											alt="logo"
 											className="block lg:hidden"
 										/>
 										<Image
-											src="/houseparty.png"
+											src="/meeting.png"
 											width={48}
 											height={48}
 											alt="logo"
