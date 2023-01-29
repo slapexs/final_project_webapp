@@ -4,6 +4,24 @@ import { MagnifyingGlassIcon, ArrowPathIcon } from "@heroicons/react/24/outline"
 import ResultCompany from "./ResultCompany"
 import AdviceCompany from "./AdviceCompany"
 
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+
+function displayAlert(title, icon, isError) {
+	const MySwal = withReactContent(Swal)
+
+	MySwal.fire({
+		title: title,
+		timer: 2000,
+		icon: icon,
+		timerProgressBar: true,
+		showConfirmButton: false,
+		showCancelButton: false,
+		allowEscapeKey: false,
+		allowOutsideClick: false,
+	}).then(() => isError && location.reload())
+}
+
 export default function Searchbox() {
 	const [searchKeyword, setSearchKeyword] = useState("")
 	const [searching, setSearching] = useState(false)
@@ -35,6 +53,13 @@ export default function Searchbox() {
 		})
 
 		const data = await res.json()
+
+		// Alert modal
+		if (res.status == 200) {
+			displayAlert("ค้นหาสำเร็จ", "success", false)
+		} else {
+			displayAlert("ผิดพลาด โปรดค้นหาอีกครั้ง", "error", true)
+		}
 		setSearching(false)
 		setResultClusterId(data.cluster)
 		// Get all companies in cluster
@@ -67,6 +92,7 @@ export default function Searchbox() {
 									className="block w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
 									placeholder="สนใจฝึกงานด้านไหน?"
 									autoComplete="off"
+									required={true}
 								/>
 
 								<button
