@@ -83,13 +83,24 @@ export default function Searchbox() {
 					<div className="mt-10 flex w-full items-end justify-center">
 						<div className="flex-col text-right w-3/4">
 							<form action="#" onSubmit={analyzeCluster} method="post">
+								<textarea
+									name="area_search"
+									id="area_search"
+									onChange={handleKeyword}
+									disabled={searching}
+									minLength={20}
+									className="block lg:hidden w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+									placeholder="สนใจฝึกงานด้านไหน?"
+									rows={4}
+									required={true}
+								/>
 								<input
 									name="search"
 									id="search"
 									onChange={handleKeyword}
 									disabled={searching}
 									minLength={20}
-									className="block w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+									className="hidden lg:block w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
 									placeholder="สนใจฝึกงานด้านไหน?"
 									autoComplete="off"
 									required={true}
@@ -103,6 +114,7 @@ export default function Searchbox() {
 									}
 									type="submit"
 									disabled={searching}
+									onClick={analyzeCluster}
 								>
 									{searching ? (
 										<ArrowPathIcon className="w-5 inline animate-spin" />
