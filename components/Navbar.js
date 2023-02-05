@@ -10,6 +10,11 @@ import Link from "next/link"
 
 const navigation = [
 	{
+		name: "เกี่ยวกับ",
+		href: "/about",
+		current: false,
+	},
+	{
 		name: "สถานประกอบการทั้งหมด",
 		href: "/company/all",
 		current: false,
