@@ -65,6 +65,7 @@ export default function Searchbox() {
 		// Get all companies in cluster
 		getCompanyWithCluster(data.cluster)
 		document.querySelector("#search").value = ""
+		document.querySelector("#area_search").value = ""
 	}
 
 	return (
