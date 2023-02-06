@@ -10,7 +10,6 @@ const ViewCompany = ({ ...props }) => {
 			<div className="py-20 md:py-24 flex justify-center">
 				<div className="w-3/4">
 					<div className="flex items-center">
-						<Image src="/advice.png" width="48" height="48" alt="advice" />
 						<h1 className="font-semibold text-3xl text-gray-600">
 							หมวดหมู่: <span className="capitalize">{name}</span>
 						</h1>

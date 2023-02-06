@@ -45,7 +45,6 @@ const AdviceCompany = () => {
 		<>
 			<div className="flex-col flex items-center justify-center">
 				<div className="w-3/4 flex items-center">
-					<Image src="/advice.png" width={30} height={30} alt="advice logo" />
 					<h1 className="text-2xl md:text-3xl font-semibold">
 						สถานประกอบการน่าสนใจ
 					</h1>
