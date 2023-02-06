@@ -61,18 +61,18 @@ export default function Navbar() {
 								<div className="">
 									<Link href="/" className="flex flex-shrink-0 items-center">
 										<Image
-											src="/meeting.png"
+											src="/handshake.png"
 											width={48}
 											height={48}
 											alt="logo"
-											className="block lg:hidden"
+											className="block lg:hidden mr-2"
 										/>
 										<Image
-											src="/meeting.png"
+											src="/handshake.png"
 											width={48}
 											height={48}
 											alt="logo"
-											className="hidden lg:block"
+											className="hidden lg:block mr-2"
 										/>
 										<strong className="font-bold">Intern assistant</strong>
 									</Link>

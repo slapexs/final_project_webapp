@@ -52,7 +52,7 @@ const About = () => {
 				{/* End thumbnail */}
 
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/meeting.png" />
+				<link rel="icon" href="/handshake.png" />
 			</Head>
 			<div className="w-full flex justify-center py-24 sm:py-20">
 				<div className="w-3/4">

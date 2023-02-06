@@ -7,7 +7,13 @@ const Footer = () => {
 			<hr className="mt-5" />
 			<div className="gap-y-5 w-full py-10 flex flex-col justify-center items-center md:flex-row md:justify-around md:py-20">
 				<div className=" flex items-center">
-					<Image src="/meeting.png" alt="favicono" width={48} height={48} />
+					<Image
+						src="/handshake.png"
+						alt="favicono"
+						width={48}
+						height={48}
+						className="mr-2"
+					/>
 					<h1 className="font-semibold">Intern assistant</h1>
 				</div>
 
