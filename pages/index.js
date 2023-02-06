@@ -53,7 +53,7 @@ export default function Home() {
 				{/* End thumbnail */}
 
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/handshake.png" />
+				<link rel="icon" href="/icon/agreement.png" />
 			</Head>
 
 			<main>
