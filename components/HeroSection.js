@@ -83,6 +83,13 @@ export default function Searchbox() {
 
 					<div className="mt-10 flex w-full items-end justify-center">
 						<div className="flex-col text-right w-3/4">
+							{/* Hint */}
+							<p className="text-left text-gray-500 font-light">
+								<small>
+									ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ
+									แอปพลิเคชัน
+								</small>
+							</p>
 							<form action="#" onSubmit={analyzeCluster} method="post">
 								<textarea
 									name="area_search"
