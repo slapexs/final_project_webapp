@@ -16,6 +16,15 @@ const AllCompanies = ({ companies }) => {
 		<>
 			<Head>
 				<title>สถานประกอบการทั้งหมด</title>
+				<meta
+					name="title"
+					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์"
+				/>
+				<meta
+					name="description"
+					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
+				/>
+
 				{/* Image thumbnail */}
 				<meta property="og:type" content="website" />
 				<meta
@@ -30,7 +39,7 @@ const AllCompanies = ({ companies }) => {
 					property="og:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="og:image" content="" />
+				<meta property="og:image" content="/metaimage.png" />
 
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta
@@ -45,10 +54,11 @@ const AllCompanies = ({ companies }) => {
 					property="twitter:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="twitter:image" content="" />
+				<meta property="twitter:image" content="/metaimage.png" />
 				{/* End thumbnail */}
+
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/houseparty.png" />
+				<link rel="icon" href="/icon/agreement.png" />
 			</Head>
 
 			<div className="py-10 md:py-20 flex justify-center">

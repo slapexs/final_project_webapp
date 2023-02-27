@@ -17,6 +17,7 @@ const PageNotFound = () => {
 					name="description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
+
 				{/* Image thumbnail */}
 				<meta property="og:type" content="website" />
 				<meta
@@ -31,7 +32,7 @@ const PageNotFound = () => {
 					property="og:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="og:image" content="" />
+				<meta property="og:image" content="/metaimage.png" />
 
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta
@@ -46,10 +47,11 @@ const PageNotFound = () => {
 					property="twitter:description"
 					content="ระบบแนะนำบริษัทสำหรับฝึกงานตามความสนใจ ด้วยเทคโนโลยีปัญญาประดิษฐ์ | Recommended System of Internship's Company"
 				/>
-				<meta property="twitter:image" content="" />
+				<meta property="twitter:image" content="/metaimage.png" />
 				{/* End thumbnail */}
+
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/houseparty.png" />
+				<link rel="icon" href="/icon/agreement.png" />
 			</Head>
 			<div className="w-full py-24 sm:py-20 flex justify-center h-screen">
 				<div className="text-center h-full flex-col justify-between flex">
