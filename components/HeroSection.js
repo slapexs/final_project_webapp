@@ -27,9 +27,15 @@ export default function Searchbox() {
 	const [searching, setSearching] = useState(false)
 	const [resultClusterId, setResultClusterId] = useState(null)
 	const [resultCompany, setResultCompany] = useState([])
+	const [btnDisabled, setbtnDisabled] = useState(true)
 
 	function handleKeyword(e) {
 		setSearchKeyword(e.target.value)
+		if (searchKeyword.length >= 20 && e.target.value != "") {
+			setbtnDisabled(false)
+		} else {
+			setbtnDisabled(true)
+		}
 	}
 
 	async function getCompanyWithCluster(cluster_id) {
@@ -85,11 +91,11 @@ export default function Searchbox() {
 						<div className="flex-col text-right w-3/4">
 							{/* Hint */}
 							<p className="text-left text-gray-500 font-light">
-								<small>
-									ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ
-									แอปพลิเคชัน
-								</small>
+								ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ
+								แอปพลิเคชัน
 							</p>
+							{/* Alert */}
+
 							<form action="#" onSubmit={analyzeCluster} method="post">
 								<textarea
 									name="area_search"
@@ -118,10 +124,12 @@ export default function Searchbox() {
 									className={
 										searching
 											? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
+											: btnDisabled
+											? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
 											: "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-500 hover:bg-purple-600"
 									}
 									type="submit"
-									disabled={searching}
+									disabled={btnDisabled}
 									onClick={analyzeCluster}
 								>
 									{searching ? (
