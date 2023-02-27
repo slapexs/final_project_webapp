@@ -31,7 +31,8 @@ export default function Searchbox() {
 
 	function handleKeyword(e) {
 		setSearchKeyword(e.target.value)
-		if (searchKeyword.length >= 20 && e.target.value != "") {
+		let temp_searchKeyword = searchKeyword.replaceAll(" ", "")
+		if (temp_searchKeyword.length >= 20 && e.target.value != "") {
 			setbtnDisabled(false)
 		} else {
 			setbtnDisabled(true)
@@ -89,58 +90,62 @@ export default function Searchbox() {
 
 					<div className="mt-10 flex w-full items-end justify-center">
 						<div className="flex-col text-right w-3/4">
-							{/* Hint */}
-							<p className="text-left text-gray-500 font-light">
-								ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ
-								แอปพลิเคชัน
-							</p>
-							{/* Alert */}
-
 							<form action="#" onSubmit={analyzeCluster} method="post">
-								<textarea
-									name="area_search"
-									id="area_search"
-									onChange={handleKeyword}
-									disabled={searching}
-									minLength={20}
-									className="block lg:hidden w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
-									placeholder="สนใจฝึกงานด้านไหน?"
-									rows={4}
-									required={true}
-								/>
-								<input
-									name="search"
-									id="search"
-									onChange={handleKeyword}
-									disabled={searching}
-									minLength={20}
-									className="hidden lg:block w-full py-2 px-3 mb-2 rounded-md bg-slate-50 border border-gray-400 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
-									placeholder="สนใจฝึกงานด้านไหน?"
-									autoComplete="off"
-									required={true}
-								/>
+								<div className="grid  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-6 gap-x-4">
+									<textarea
+										name="area_search"
+										id="area_search"
+										onChange={handleKeyword}
+										disabled={searching}
+										minLength={20}
+										className="block lg:hidden w-full py-2 px-3 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+										placeholder="ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ แอปพลิเคชัน"
+										rows={4}
+										required={true}
+									/>
+									<input
+										name="search"
+										id="search"
+										onChange={handleKeyword}
+										disabled={searching}
+										minLength={20}
+										className="col-span-5 h-full hidden lg:block w-full py-2 px-3 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+										placeholder="ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ แอปพลิเคชัน"
+										autoComplete="off"
+										required={true}
+									/>
 
-								<button
-									className={
-										searching
-											? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
-											: btnDisabled
-											? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
-											: "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-500 hover:bg-purple-600"
-									}
-									type="submit"
-									disabled={btnDisabled}
-									onClick={analyzeCluster}
-								>
-									{searching ? (
-										<ArrowPathIcon className="w-5 inline animate-spin" />
-									) : (
-										<MagnifyingGlassIcon className="w-5 inline" />
-									)}
+									<button
+										className={
+											searching
+												? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
+												: btnDisabled
+												? "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-400"
+												: "px-4 py-2 w-full md:w-auto rounded-lg text-white bg-purple-500 hover:bg-purple-600"
+										}
+										type="submit"
+										disabled={btnDisabled}
+										onClick={analyzeCluster}
+									>
+										{searching ? (
+											<ArrowPathIcon className="w-5 inline animate-spin" />
+										) : (
+											<MagnifyingGlassIcon className="w-5 inline" />
+										)}
 
-									{searching ? "กำลังค้นหา" : "ค้นหา"}
-								</button>
+										{searching ? "กำลังค้นหา" : "ค้นหา"}
+									</button>
+								</div>
 							</form>
+						</div>
+					</div>
+					{/* Hint */}
+					<div className="w-full flex justify-center">
+						<div className="w-3/4">
+							<small className=" text-red-400">
+								กรุณาระบุความสนใจให้มากกว่า 20
+								ตัวอักษรเพื่อให้ได้ข้อมูลที่ตรงที่สุด
+							</small>
 						</div>
 					</div>
 				</div>
