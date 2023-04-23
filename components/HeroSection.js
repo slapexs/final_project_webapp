@@ -25,11 +25,21 @@ function displayAlert(title, icon, isError) {
   }).then(() => isError && location.reload());
 }
 
+const listFilter = [
+  "ภาคเหนือ",
+  "ภาคตะวันออก",
+  "ภาคกลาง",
+  "ภาคตะวันออกเฉียงเหนือ",
+  "ภาคใต้",
+  "ทั้งหมด",
+];
+
 export default function Searchbox() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searching, setSearching] = useState(false);
   const [resCompany, setResCompany] = useState(null);
   const [btnDisabled, setbtnDisabled] = useState(true);
+  const [filterActive, setFilterActive] = useState(5);
 
   function handleKeyword(e) {
     setSearchKeyword(e.target.value);
@@ -43,11 +53,12 @@ export default function Searchbox() {
 
   async function analyzeCluster(e) {
     e.preventDefault();
-    const url = "https://iamonze.tech/searchcompany";
+    // const url = "https://iamonze.tech/searchcompany";
+    const url = "http://localhost:8000/searchcompany";
     setSearching(true);
     const res = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({ keyword: searchKeyword }),
+      body: JSON.stringify({ keyword: searchKeyword, sector: filterActive }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -84,6 +95,24 @@ export default function Searchbox() {
           <div className="mt-10 flex w-full items-end justify-center">
             <div className="flex-col text-right w-3/4">
               <form action="#" onSubmit={analyzeCluster} method="post">
+                <div className="text-left mb-2 flex items-center gap-x-2 text-xs">
+                  <span className="text-gray-400">ตัวกรอง</span>
+                  <ul className="flex gap-1">
+                    {listFilter.map((elem, index) => (
+                      <li
+                        key={index}
+                        className={
+                          filterActive != index
+                            ? "border-2 border-purple-100 bg-purple-50 rounded-full px-2 cursor-pointer hover:border-purple-300"
+                            : "border-2 border-purple-300 bg-purple-50 rounded-full px-2 cursor-pointer "
+                        }
+                        onClick={() => setFilterActive(index)}
+                      >
+                        {elem}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-6 gap-x-4">
                   <textarea
                     name="area_search"
@@ -91,7 +120,7 @@ export default function Searchbox() {
                     onChange={handleKeyword}
                     disabled={searching}
                     minLength={20}
-                    className="block lg:hidden w-full py-2 px-3 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+                    className="block lg:hidden w-full py-1 px-2 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
                     placeholder="ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ แอปพลิเคชัน"
                     rows={4}
                     required={true}
@@ -102,7 +131,7 @@ export default function Searchbox() {
                     onChange={handleKeyword}
                     disabled={searching}
                     minLength={20}
-                    className="col-span-5 h-full hidden lg:block w-full py-2 px-3 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
+                    className="col-span-5 h-full hidden lg:block w-full py-1 px-2 mb-2 rounded-md border border-zinc-500 border-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm disabled:bg-zinc-200"
                     placeholder="ตัวอย่าง: อยากฝึกงานบริษัทที่ออกแบบและพัฒนาเว็บไซต์ และ แอปพลิเคชัน"
                     autoComplete="off"
                     required={true}
