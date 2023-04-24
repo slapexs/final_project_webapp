@@ -53,8 +53,7 @@ export default function Searchbox() {
 
   async function analyzeCluster(e) {
     e.preventDefault();
-    // const url = "https://iamonze.tech/searchcompany";
-    const url = "http://localhost:8000/searchcompany";
+    const url = "https://iamonze.tech/searchcompany";
     setSearching(true);
     const res = await fetch(url, {
       method: "POST",
