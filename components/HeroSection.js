@@ -28,8 +28,8 @@ function displayAlert(title, icon, isError) {
 const listFilter = [
   "ภาคเหนือ",
   "ภาคตะวันออก",
-  "ภาคกลาง",
   "ภาคตะวันออกเฉียงเหนือ",
+  "ภาคกลาง",
   "ภาคใต้",
   "ทั้งหมด",
 ];
@@ -37,7 +37,7 @@ const listFilter = [
 export default function Searchbox() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searching, setSearching] = useState(false);
-  const [resCompany, setResCompany] = useState(null);
+  const [resCompany, setResCompany] = useState([]);
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [filterActive, setFilterActive] = useState(5);
 
@@ -94,9 +94,9 @@ export default function Searchbox() {
           <div className="mt-10 flex w-full items-end justify-center">
             <div className="flex-col text-right w-3/4">
               <form action="#" onSubmit={analyzeCluster} method="post">
-                <div className="text-left mb-2 flex items-center gap-x-2 text-xs">
+                <div className="text-left mb-2 lg:flex items-center gap-x-2 text-xs md:grid">
                   <span className="text-gray-400">ตัวกรอง</span>
-                  <ul className="flex gap-1">
+                  <ul className="flex sm:flex-col md:flex-row gap-1">
                     {listFilter.map((elem, index) => (
                       <li
                         key={index}
@@ -174,10 +174,20 @@ export default function Searchbox() {
 
       {/* Result search company */}
       {resCompany ? (
-        <ResultCompany
-          cluster={resCompany[1]["cluster_name"]}
-          companies={resCompany}
-        />
+        resCompany.length > 0 ? (
+          <ResultCompany
+            cluster={resCompany[1]["cluster_name"]}
+            companies={resCompany}
+          />
+        ) : (
+          <div className="w-full">
+            <div className="flex justify-center">
+              <h1 className="text-xl text-red-500">
+                ไม่พบข้อมูลบริษัทที่ต้องการในตัวกรองนี้
+              </h1>
+            </div>
+          </div>
+        )
       ) : (
         <AdviceCompany />
       )}
