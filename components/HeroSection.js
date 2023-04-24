@@ -37,7 +37,7 @@ const listFilter = [
 export default function Searchbox() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searching, setSearching] = useState(false);
-  const [resCompany, setResCompany] = useState([]);
+  const [resCompany, setResCompany] = useState(null);
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [filterActive, setFilterActive] = useState(5);
 
@@ -94,24 +94,6 @@ export default function Searchbox() {
           <div className="mt-10 flex w-full items-end justify-center">
             <div className="flex-col text-right w-3/4">
               <form action="#" onSubmit={analyzeCluster} method="post">
-                <div className="text-left mb-2 lg:flex items-center gap-x-2 text-xs md:grid">
-                  <span className="text-gray-400">ตัวกรอง</span>
-                  <ul className="flex sm:flex-col md:flex-row gap-1">
-                    {listFilter.map((elem, index) => (
-                      <li
-                        key={index}
-                        className={
-                          filterActive != index
-                            ? "border-2 border-purple-100 bg-purple-50 rounded-full px-2 cursor-pointer hover:border-purple-300"
-                            : "border-2 border-purple-300 bg-purple-50 rounded-full px-2 cursor-pointer "
-                        }
-                        onClick={() => setFilterActive(index)}
-                      >
-                        {elem}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
                 <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-6 gap-x-4">
                   <textarea
                     name="area_search"
@@ -174,20 +156,10 @@ export default function Searchbox() {
 
       {/* Result search company */}
       {resCompany ? (
-        resCompany.length > 0 ? (
-          <ResultCompany
-            cluster={resCompany[1]["cluster_name"]}
-            companies={resCompany}
-          />
-        ) : (
-          <div className="w-full">
-            <div className="flex justify-center">
-              <h1 className="text-xl text-red-500">
-                ไม่พบข้อมูลบริษัทที่ต้องการในตัวกรองนี้
-              </h1>
-            </div>
-          </div>
-        )
+        <ResultCompany
+          cluster={resCompany[1]["cluster_name"]}
+          companies={resCompany}
+        />
       ) : (
         <AdviceCompany />
       )}
