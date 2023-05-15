@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import Maintain from "../components/Maintain"
 
 // Components
 import HeroSection from "../components/HeroSection"
@@ -57,7 +58,7 @@ export default function Home() {
 			</Head>
 
 			<main>
-				<HeroSection />
+				<Maintain />
 			</main>
 		</>
 	)

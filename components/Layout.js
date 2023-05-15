@@ -12,9 +12,9 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<div className={fontPrompt.className}>
-				<Navbar />
+				{/* <Navbar /> */}
 				{children}
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</>
 	)
